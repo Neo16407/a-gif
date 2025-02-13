@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="VN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A gif for Trang.</title>
+    <link rel="stylesheet" href="styles.css">
+</head>     
+    <body>
+        <div id="hộp-nhà-cái">
+        	<br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <h1>Will you be my valentine?</h1>
+            <img id="valentineImage" src="https://i.pinimg.com/originals/21/ef/67/21ef67f4522815f59bf297d7c4b9718b.gif" alt="Valentine's Day Image" style="max-width: 300px; height: auto;">
+            <br/>
+            <br/>
+            <br/>
+            <button id="yesButton">No</button>
+            <button id="no">Yes</button>
+        </div>
+        <style>
+            body {
+                background: linear-gradient(to bottom, #f5cac3, #f7ede2);
+            }
+            div {
+                text-align: center;
+                vertical-align: middle;
+            }
+            h1 {
+            	font-family: cursive;
+                color: black;
+            }
+            #yesButton {
+                background-color: #06d6a0;
+                transition: transform 0.3s;
+                margin-right: 10px;
+                width: 130px;
+                font-size: 15px;
+                height: 60px;
+                color: black;
+                margin-left: -140px;
+            }
+            #no {
+                position: absolute;
+                background-color: #ef476f;
+                transition: transform 0.3s;
+                margin-left: 10px;
+                width: 130px;
+                 font-size: 15px;
+                height: 60px;
+                color: darkred;         }
+        </style>
+        <script>
+            document.getElementById("yesButton").addEventListener("click", showAlert);
+
+            function showAlert() {
+                alert("Giỏi ghê ha, cook ra ngoài ngủ liền.");
+            }
+
+            var yesButton = document.getElementById("yesButton");
+            var no = document.getElementById("no");
+            var valentineImage = document.getElementById("valentineImage");
+
+            var noTexts = ["Chắc chưa?", "Ai cho mà đi?", "Ra ngoài sofa chơi"," Đây không chơi cùng", "Blè >:))", "Đố chơi lại", "Ai cho chơi cùng"];
+            var imageSources = ["https://i.pinimg.com/236x/30/b9/7f/30b97f4327c868b11850d8c3b0a66279.jpg", "https://i.pinimg.com/236x/b3/d2/1c/b3d21ce38d6fd045f944cb6ed27657a0.jpg", "https://i.pinimg.com/236x/5a/75/39/5a75391bf56786fd3fa75d3d3157f521.jpg", "https://i.pinimg.com/236x/6c/f3/0b/6cf30b4328942f186ad31fab832e010d.jpg"];
+
+            no.addEventListener("click", change);
+
+            function change() {
+                var randomIndex = Math.floor(Math.random() * noTexts.length);
+                var randomText = noTexts[randomIndex];
+                no.innerText = randomText;
+
+                var i = Math.floor(Math.random() * 1000) + 1;
+                var j = Math.floor(Math.random() * 700) + 1;
+                no.style.left = i + "px";
+                no.style.top = j + "px";
+
+                var currentWidth = yesButton.offsetWidth;
+                var currentHeight = yesButton.offsetHeight
+                yesButton.style.width = currentWidth + 30 + "px";
+                yesButton.style.height = currentHeight + 10 + "px";
+
+                var randomImageIndex = Math.floor(Math.random() * imageSources.length);
+                valentineImage.src = imageSources[randomImageIndex];
+            }
+        </script>
+    </body>
+</html>
